@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src *;
+    script-src 'self' 'unsafe-inline' 'unsafe-eval' *"
+    />
     <title>You matter</title>
     <link rel="stylesheet" href="global.css" />
   </head>
@@ -29,6 +34,8 @@
     </div>
     <div class="staticrypt-content"></div>
     <script>
+      // Remade code from https://github.com/robinmoisson/staticrypt
+
       async function initiate() {
         const password = document.getElementById("staticrypt-password").value;
 
@@ -41,7 +48,6 @@
       document
         .querySelector(".staticrypt-decrypt-button")
         .addEventListener("click", initiate);
-      // Using a striped down code from https://github.com/robinmoisson/staticrypt
 
       // these variables will be filled when generating the file - the template format is 'variable_name'
       const staticryptInitiator = (function () {
