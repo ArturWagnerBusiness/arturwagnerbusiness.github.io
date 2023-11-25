@@ -25,23 +25,22 @@
         placeholder="Password"
         autofocus
       />
-      <input
-        type="submit"
-        onclick='(async ()=>{
-          const password = document.getElementById("staticrypt-password").value;
-
-          const { isSuccessful } = await staticrypt.handleDecryptionOfPage(
-            password, false
-          );
-          if (!isSuccessful) alert(templateError);
-
-        })()'
-        class="staticrypt-decrypt-button"
-        value="Decrypt"
-      />
+      <input type="submit" class="staticrypt-decrypt-button" value="Decrypt" />
     </div>
     <div class="staticrypt-content"></div>
     <script>
+      async function initiate() {
+        const password = document.getElementById("staticrypt-password").value;
+
+        const { isSuccessful } = await staticrypt.handleDecryptionOfPage(
+          password,
+          false
+        );
+        if (!isSuccessful) alert(templateError);
+      }
+      document
+        .querySelector(".staticrypt-decrypt-button")
+        .addEventListener("click", initiate);
       // Using a striped down code from https://github.com/robinmoisson/staticrypt
 
       // these variables will be filled when generating the file - the template format is 'variable_name'
