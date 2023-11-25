@@ -16,19 +16,29 @@
         speech because you have nothing to say. </em
       ><br />- Edward Snowden
     </p>
-    <hr />
     <div class="staticrypt-form">
-      <form id="staticrypt-form" action="#" method="post">
-        <input
-          id="staticrypt-password"
-          type="password"
-          name="password"
-          placeholder="Password"
-          autofocus
-        />
+      <hr />
+      <input
+        id="staticrypt-password"
+        type="password"
+        name="password"
+        placeholder="Password"
+        autofocus
+      />
+      <input
+        type="submit"
+        onclick='(async ()=>{
+          const password = document.getElementById("staticrypt-password").value;
 
-        <input type="submit" class="staticrypt-decrypt-button" value="Load" />
-      </form>
+          const { isSuccessful } = await staticrypt.handleDecryptionOfPage(
+            password, false
+          );
+          if (!isSuccessful) alert(templateError);
+
+        })()'
+        class="staticrypt-decrypt-button"
+        value="Decrypt"
+      />
     </div>
     <div class="staticrypt-content"></div>
     <script>
@@ -427,24 +437,6 @@
         staticryptConfig,
         templateConfig
       );
-
-      // handle password form submission
-      document
-        .getElementById("staticrypt-form")
-        .addEventListener("submit", async function (e) {
-          e.preventDefault();
-
-          const password = document.getElementById("staticrypt-password").value;
-
-          const { isSuccessful } = await staticrypt.handleDecryptionOfPage(
-            password,
-            false
-          );
-
-          if (!isSuccessful) {
-            alert(templateError);
-          }
-        });
     </script>
   </body>
 </html>
