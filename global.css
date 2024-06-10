@@ -41,7 +41,7 @@ a {
   color: #ff6c6b;
   text-decoration: none;
 }
-a:hover {
+a[href]:hover {
   color: #ff6c6b;
   text-decoration: underline;
 }
