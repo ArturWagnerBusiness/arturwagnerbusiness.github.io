@@ -1,3 +1,3 @@
 # Direct source for arturwagner.co.uk
 
-Also accessable through arturwagner.net and arturwagner.org
+Also accessible through arturwagner.net and arturwagner.org
