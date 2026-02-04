@@ -3,7 +3,9 @@
  * All credit goes to their community
  */
 body {
-  font-family: DejaVu Sans Mono, monospace;
+  font-family:
+    DejaVu Sans Mono,
+    monospace;
   margin: 20px auto;
   max-width: 800px;
   line-height: 1.5em;
@@ -12,6 +14,14 @@ body {
   color: #bbc2cf;
   padding: 0 10px;
   hyphens: auto;
+}
+
+code {
+  border-radius: 8px;
+  background-color: #242830;
+  font-size: 1.1em;
+  line-height: 1.5em;
+  padding: 5px;
 }
 header {
   display: flex;
